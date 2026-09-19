@@ -8,3 +8,4 @@ function Button({label}: ButtonProps) {
 }
 
 export default Button
+
