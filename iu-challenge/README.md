@@ -122,3 +122,7 @@ https://phemelo-react-challenge8-50cc3.web.app
 ## Notes
 
 This app was built as a frontend UI challenge to translate a branded soda storefront into a reusable and responsive React experience.
+
+## Challenges
+
+I couldn't the proportions of the hero without it looking bad.
