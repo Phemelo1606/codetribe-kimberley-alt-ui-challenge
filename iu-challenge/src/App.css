@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .navBar {
   display: flex;
     align-items: center;
@@ -70,10 +76,10 @@ p.nav-title{
   background-color: #f3dbd0;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 60px 80px;
-  min-height: 400px;
-
+  justify-content: flex-start;
+  gap: 60px;
+  padding: 48px 80px;
+  min-height: auto;
 }
 
 .hero-content {
@@ -81,29 +87,32 @@ p.nav-title{
   flex-direction: column;
   align-items: flex-start;
   gap: 24px;
-  max-width: 400px;
+  max-width: 480px;
+  /* wider, so "A New Kind" fits on one line */
 }
 
 p.hero-text {
   color: #13443d;
   font-weight: 700;
   font-family: 'Georgia Pro', Georgia, serif;
-  font-size: 70px;
+  font-size: clamp(40px, 4.5vw, 58px);
+  /* scales with viewport, matches design's 2-line balance */
   line-height: 1.1;
   margin: 0;
 }
 
-
-
-
 .hero-img {
   position: relative;
-  width: 350px;
-  height: 350px;
+  width: 380px;
+  height: 380px;
+  margin-left: auto;
+  /* pushes image to the right edge, gap stays controlled by content width */
 }
 
 .hero-circle {
   position: absolute;
+  width: 320px;
+  height: 320px;
   top: 0;
   left: 0;
   width: 100%;
@@ -116,13 +125,12 @@ p.hero-text {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  width: 60%;
+  transform: translate(-46%, -55%) rotate(15deg);
+  width: 80%;
   height: auto;
   object-fit: contain;
   z-index: 1;
 }
-
 
 /* InfoCard.css */
 .info-card {
@@ -166,6 +174,28 @@ p.hero-text {
   color: #555;
 }
 
+@media only screen and (max-width: 900px) and (min-width: 681px) {
+  .hero-img {
+    width: clamp(220px, 32vw, 340px);
+    height: clamp(220px, 32vw, 340px);
+  }
+
+  .hero {
+    align-items: center;
+  }
+}
+
+/* tighten this up so it doesn't wait until 900px to shrink the gap */
+@media only screen and (max-width: 960px) {
+  .nav-links {
+    gap: 18px;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+  }
+}
+
 /* Stack on mobile */
 @media (max-width: 640px) {
   .info-card {
@@ -198,7 +228,7 @@ p.hero-text {
   }
 }
 
-@media only screen and (max-width: 640px) {
+@media only screen and (max-width: 680px) {
   .navBar {
     row-gap: 12px;
     padding: 12px 20px;
@@ -314,7 +344,7 @@ p.hero-text {
   scroll-snap-align: start;
   aspect-ratio: 3 / 5;
   border-radius: 40px 40px 10px 10px;
-  padding: 26px 14px 22px;
+  padding: 11px 8px 10px;
   scroll-margin: 10px;
   display: flex;
   flex-direction: column;
@@ -332,7 +362,7 @@ p.hero-text {
 }
 
 .pc-image {
-  max-width: 78%;
+  max-width: 90%;
   max-height: 100%;
   object-fit: contain;
 }
@@ -406,7 +436,7 @@ p.hero-text {
   grid-template-rows: minmax(0, 1fr);
   align-items: center;
   gap: 0;
-  background-color: #dfb8ef;
+  background-color: #f8eed1;
   height: clamp(13rem, 20vw, 18rem);
   margin: 5rem 0;
   /* room for the image to overhang top and bottom */
@@ -451,13 +481,13 @@ p.hero-text {
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
-  background-color: #d998ec;
+  background-color: #f5cb53;
 }
 
 .icon-text-icon {
   width: 1.5rem;
   height: 1.5rem;
-  color: #2b2b2b;
+  color: #13443d;
 }
 
 .icon-text-label {
@@ -465,7 +495,7 @@ p.hero-text {
   font-size: 1rem;
   font-weight: 500;
   line-height: 1.3;
-  color: #2b2b2b;
+  color: #13443d;
 }
 
 /* Stack on small screens */
@@ -491,4 +521,75 @@ p.hero-text {
     gap: 1.5rem;
     padding: 1.5rem;
   }
+}
+
+.input {
+  background-color: white;
+  border-color: #13443d;
+  border-radius: 20px;
+  border-style:solid;
+  width: 100%;
+  max-width: 250px;
+  padding: 10px;
+  box-sizing: border-box;
+
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 3rem 4rem;
+  background: #fdf6ee;
+  color: #264239;
+}
+
+.footer-signup {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 260px;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 600;
+}
+
+.footer-brand .logo {
+  width: 60px;
+  height: 60px;
+}
+
+.footer-column h4 {
+  margin: 0 0 0.75rem;
+  font-size: 1rem;
+}
+
+.footer-column ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer a {
+  color: inherit;
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 0.75rem;
+  font-size: 1.25rem;
 }

@@ -1,5 +1,4 @@
 import Olipop from './assets/Olipop-Refreshing-Beverage-Logo-PNG.png';
-import Can from './assets/olipop_can.png';
 import Circle from './assets/hero-circle.png';
 import Button from './components/buttons';
 import Many from './assets/olipop-many.jpg';
@@ -10,10 +9,14 @@ import GingerAle from './assets/Ginger-Ale.png';
 import WaterMalon from './assets/WaterMelon-Lime.png';
 import TropicalPunch from './assets/Tropical-Punch.png';
 import OrangeSqueeze from './assets/Orange-Squeeze.png';
-import LastImage from './assets/last-img.jpg';
+import Ginger from './assets/Ginger.jpg';
 import { ProductCarousel, type Product } from './components/carousel-component';
 import IconText from './components/icon-with-text';
 import { CircleDollarSign, GlassWater, Truck, CircleX } from 'lucide-react';
+import { FaInstagram, FaFacebook, FaTwitter, FaLinkedin, FaPinterest } from "react-icons/fa";
+import Input from './components/input';
+import { useState } from "react";
+import Strawberry from './assets/straberry-v.png';
 import './App.css'
 
 const products: Product[] = [
@@ -25,7 +28,30 @@ const products: Product[] = [
   { id: 6, name: 'Banana Cream', price: '$34.99', imageUrl: BananaCream, category: 'Sparkling Tonic', bgColor: '#f7e05d', pillColor: '#cbce17' },
 ];
 
+const flavours = [
+  "Watermelon Lime",
+  "Vintage Cola",
+  "Classic Root Beer",
+  "Doctor Goodwin",
+  "Banana Cream",
+  "Strawberry Vanilla",
+  "Ginger Lemon",
+];
+
+const information = ["About Us", "Contact Us", "Terms", "Privacy", "FAQ"];
+
+const socials = [
+  { icon: <FaInstagram />, label: "Instagram", href: "#" },
+  { icon: <FaFacebook />, label: "Facebook", href: "#" },
+  { icon: <FaTwitter />, label: "Twitter", href: "#" },
+  { icon: <FaLinkedin />, label: "LinkedIn", href: "#" },
+  { icon: <FaPinterest />, label: "Pinterest", href: "#" },
+];
+
+
+
 function App() {
+  const [email, setEmail] = useState("");
 
 
   return (
@@ -56,7 +82,7 @@ function App() {
         </div>
 
         <div className="hero-img">
-          <img src={Can} className="hero-can" alt="OLIPOP Strawberry Vanilla can" />
+          <img src={Strawberry} className="hero-can" alt="OLIPOP Strawberry Vanilla can" />
           <img src={ Circle} className="hero-circle" alt="circle"/>
         </div>
 
@@ -92,7 +118,7 @@ function App() {
                   <IconText icon={GlassWater} text="Early access to new flavors." />
               </div>
 
-              <img className="benefits_image" src={ LastImage} alt="" />
+              <img className="benefits_image" src={ Ginger} alt="" />
 
               <div className="benefits_column">
                   <IconText icon={Truck} text="Free Shipping, Always." />
@@ -112,8 +138,42 @@ function App() {
         </InfoCard>
       </section>
 
-      <footer>
-        
+      <footer className="footer">
+        <div className="footer-signup">
+          <div className="footer-brand">
+            <img src={Olipop} className="logo" alt="Olipop logo" width="80" height="80" />
+            <p>Stay Connected With OLIPOP</p>
+          </div>
+          <Input value={email} onChange={setEmail} />
+          <Button label="Subscribe" />
+        </div>
+
+        <div className="footer-column">
+          <h4>FLAVOURS</h4>
+          <ul>
+            {flavours.map((f) => (
+              <li key={f}><a href="#">{f}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="footer-column">
+          <h4>INFORMATION</h4>
+          <ul>
+            {information.map((i) => (
+              <li key={i}><a href="#">{i}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="footer-column">
+          <h4>SOCIAL MEDIA</h4>
+          <div className="footer-socials">
+            {socials.map((s) => (
+              <a key={s.label} href={s.href} aria-label={s.label}>{s.icon}</a>
+            ))}
+          </div>
+        </div>
       </footer>
 
     </>

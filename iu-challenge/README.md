@@ -15,61 +15,86 @@ The React Compiler is not enabled on this template because of its impact on dev 
 
 If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-```js
+````js
 export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+  # OLIPOP Soda Storefront
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+  An OLIPOP-inspired responsive storefront built with React, TypeScript, and Vite. The website presents a colorful soda brand experience with product discovery, subscription benefits, and newsletter signup sections.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+  ## Website Overview
 
+  The page includes:
+
+  - A responsive navigation bar with shop, store locator, learning, and subscription actions
+  - A hero section introducing OLIPOP as "A New Kind Of Soda"
+  - An ingredients story section explaining the brand's approach to better soda
+  - An interactive product carousel featuring multiple OLIPOP flavors
+  - Subscription benefits including savings, early flavor access, free shipping, and flexible orders
+  - A subscription call-to-action section
+  - A footer with email signup, flavor links, information links, and social media icons
+
+  ## Features
+
+  - Responsive layouts for desktop, tablet, and mobile screens
+  - Reusable React components for buttons, information cards, icon-text features, inputs, and the product carousel
+  - Smooth horizontal carousel navigation with previous and next controls
+  - Product image fallback when an image cannot be loaded
+  - Hover, focus, and disabled states for interactive controls
+  - Product cards with flavor-specific colors and pricing pills
+
+  ## Built With
+
+  - React 19
+  - TypeScript
+  - Vite
+  - Plain CSS
+  - Lucide React
+  - React Icons
+
+  ## Getting Started
+
+  ### Requirements
+
+  - Node.js 18 or newer
+  - pnpm, npm, or another compatible package manager
+
+  ### Installation
+
+  ```bash
+  pnpm install
+````
+
+### Run the development server
+
+```bash
+pnpm dev
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+Open the local URL shown in the terminal to view the website.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Create a production build
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+pnpm build
 ```
+
+### Preview the production build
+
+```bash
+pnpm preview
+```
+
+## Project Structure
+
+```text
+src/
+├── assets/       # Product, brand, and promotional images
+├── components/   # Reusable UI components
+├── App.tsx       # Main storefront page
+├── App.css       # Page and component styling
+└── index.css     # Global styles
+```
+
+## Project Purpose
+
+This project was created as a React and TypeScript UI challenge focused on translating a visual soda storefront design into a responsive, reusable frontend experience.
