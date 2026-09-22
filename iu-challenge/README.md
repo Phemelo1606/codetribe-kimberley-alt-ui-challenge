@@ -92,18 +92,19 @@ pnpm preview
 
 ```text
 src/
-├── assets/                 # Product images and brand visuals
-├── components/             # Reusable UI pieces
-│   ├── buttons.tsx
-│   ├── carousel-component.tsx
-│   ├── icon-with-text.tsx
-│   ├── InfoCard.tsx
-│   └── input.tsx
-├── App.tsx                 # Main storefront page
-├── App.css                 # Page and component styling
-├── index.css               # Global styles
-├── main.tsx                # App entry point
-└── vite-env.d.ts
+── assets/                 # Product images and brand visuals
+── components/             # Reusable UI pieces
+   ── buttons.tsx
+   ── carousel-component.tsx
+   ── icon-with-text.tsx
+   ── InfoCard.tsx
+   ── input.tsx
+── App.tsx                 # Main storefront page
+── App.css                 # Page and component styling
+── index.css               # Global styles
+── main.tsx                # App entry point
+── vite-env.d.ts
+
 ```
 
 ## Deployment
