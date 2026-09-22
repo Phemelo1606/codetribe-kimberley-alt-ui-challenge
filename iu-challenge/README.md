@@ -1,76 +1,80 @@
-# React + TypeScript + Vite
+# OLIPOP-inspired Soda Storefront
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive React + TypeScript storefront inspired by OLIPOP's brand aesthetic and product marketing style. The app includes a high-impact hero section, brand storytelling, product showcase carousel, subscription benefits, and a newsletter signup footer.
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+This project recreates a modern soda storefront experience with:
 
-## React Compiler
+- a branded top navigation bar
+- a hero section with bold product messaging
+- an ingredients/storytelling block
+- a flavor carousel with interactive product cards
+- subscription savings and perks sections
+- a polished footer with email capture and social links
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+- Responsive layout for desktop and mobile screens
+- Reusable UI components for buttons, cards, inputs, and icon text
+- Interactive product carousel with previous and next controls
+- Flavor-specific product cards with custom accent colors
+- Clean CSS-based styling inspired by the original brand look
+- Firebase hosting setup for deployment
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Tech Stack
 
-````js
-export default defineConfig([
-  # OLIPOP Soda Storefront
+- React 19
+- TypeScript
+- Vite
+- CSS
+- Lucide React
+- React Icons
 
-  An OLIPOP-inspired responsive storefront built with React, TypeScript, and Vite. The website presents a colorful soda brand experience with product discovery, subscription benefits, and newsletter signup sections.
+## Dependencies
 
-  ## Website Overview
+### Production dependencies
 
-  The page includes:
+- react
+- react-dom
+- lucide-react
+- react-icons
 
-  - A responsive navigation bar with shop, store locator, learning, and subscription actions
-  - A hero section introducing OLIPOP as "A New Kind Of Soda"
-  - An ingredients story section explaining the brand's approach to better soda
-  - An interactive product carousel featuring multiple OLIPOP flavors
-  - Subscription benefits including savings, early flavor access, free shipping, and flexible orders
-  - A subscription call-to-action section
-  - A footer with email signup, flavor links, information links, and social media icons
+### Development dependencies
 
-  ## Features
+- @eslint/js
+- @types/node
+- @types/react
+- @types/react-dom
+- @vitejs/plugin-react
+- eslint
+- eslint-plugin-react-hooks
+- eslint-plugin-react-refresh
+- globals
+- typescript
+- typescript-eslint
+- vite
 
-  - Responsive layouts for desktop, tablet, and mobile screens
-  - Reusable React components for buttons, information cards, icon-text features, inputs, and the product carousel
-  - Smooth horizontal carousel navigation with previous and next controls
-  - Product image fallback when an image cannot be loaded
-  - Hover, focus, and disabled states for interactive controls
-  - Product cards with flavor-specific colors and pricing pills
+## Getting Started
 
-  ## Built With
+### Prerequisites
 
-  - React 19
-  - TypeScript
-  - Vite
-  - Plain CSS
-  - Lucide React
-  - React Icons
+- Node.js 18 or newer
+- pnpm, npm, or another package manager
 
-  ## Getting Started
+### Install dependencies
 
-  ### Requirements
+```bash
+pnpm install
+```
 
-  - Node.js 18 or newer
-  - pnpm, npm, or another compatible package manager
-
-  ### Installation
-
-  ```bash
-  pnpm install
-````
-
-### Run the development server
+### Run the app locally
 
 ```bash
 pnpm dev
 ```
 
-Open the local URL shown in the terminal to view the website.
+Then open the local URL shown in the terminal.
 
 ### Create a production build
 
@@ -88,13 +92,32 @@ pnpm preview
 
 ```text
 src/
-├── assets/       # Product, brand, and promotional images
-├── components/   # Reusable UI components
-├── App.tsx       # Main storefront page
-├── App.css       # Page and component styling
-└── index.css     # Global styles
+├── assets/                 # Product images and brand visuals
+├── components/             # Reusable UI pieces
+│   ├── buttons.tsx
+│   ├── carousel-component.tsx
+│   ├── icon-with-text.tsx
+│   ├── InfoCard.tsx
+│   └── input.tsx
+├── App.tsx                 # Main storefront page
+├── App.css                 # Page and component styling
+├── index.css               # Global styles
+├── main.tsx                # App entry point
+└── vite-env.d.ts
 ```
 
-## Project Purpose
+## Deployment
 
-This project was created as a React and TypeScript UI challenge focused on translating a visual soda storefront design into a responsive, reusable frontend experience.
+The project includes Firebase hosting configuration for publishing the production build:
+
+```bash
+firebase deploy
+```
+
+Live link:
+
+https://phemelo-react-challenge8-50cc3.web.app
+
+## Notes
+
+This app was built as a frontend UI challenge to translate a branded soda storefront into a reusable and responsive React experience.
